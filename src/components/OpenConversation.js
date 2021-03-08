@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import { Form, InputGroup, Button } from 'react-bootstrap'
 import { useConversations } from '../contexts/ConversationsProvider';
+import './OpenConversation.css'
 
 export default function OpenConversation() {
   const [text, setText] = useState('')
@@ -22,7 +23,7 @@ export default function OpenConversation() {
   }
 
   return (
-    <div className="d-flex flex-column flex-grow-1">
+    <div className="chat d-flex flex-column flex-grow-1">
       <div className="flex-grow-1 overflow-auto">
         <div className="d-flex flex-column align-items-start justify-content-end px-3">
           {selectedConversation.messages.map((message, index) => {
@@ -34,7 +35,7 @@ export default function OpenConversation() {
                 className={`my-1 d-flex flex-column ${message.fromMe ? 'align-self-end align-items-end' : 'align-items-start'}`}
               >
                 <div
-                  className={`rounded px-2 py-1 ${message.fromMe ? 'bg-primary text-white' : 'border'}`}>
+                  className={`rounded px-3 py-3 text-white ${message.fromMe ? 'bg-primary text-white' : 'border bg-secondary'}`}>
                   {message.text}
                 </div>
                 <div className={`text-muted small ${message.fromMe ? 'text-right' : ''}`}>
@@ -46,14 +47,14 @@ export default function OpenConversation() {
         </div>
       </div>
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="m-2">
+        <Form.Group className="mt-1">
           <InputGroup>
             <Form.Control
               as="textarea"
               required
               value={text}
               onChange={e => setText(e.target.value)}
-              style={{ height: '75px', resize: 'none' }}
+              style={{ height: '35px', resize: 'none' }}
             />
             <InputGroup.Append>
               <Button type="submit">Send</Button>

@@ -1,0 +1,13 @@
+.chat {
+  background-image: url("https://wallpaperaccess.com/full/1288076.jpg");
+  background-repeat: repeat;
+  background-position: center;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-left: 30px;
+  overflow: scroll;
+}
+
+.sidebar {
+  background-image: url("https://www.haylsworld.com/s/Hayls-World-Whatsapp-Background-01.jpg");
+}
